@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<title>npy.tools</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/npy.tools.css">
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/npy-numinput.js"></script>
+<script src="js/npy-lineclamp.js"></script>
+<style>
+* { margin:0; padding:0; }
+h2 { margin-bottom:10px; }
+.example { margin-bottom:30px; }
+p#test1 { font-size:18px; line-height:20px; width:200px; display:block; margin-bottom:20px; }
+p#test2 { font-size:18px; line-height:20px; width:400px; display:block; margin-bottom:20px; }
+p#test3 { word-break:break-all; font-size:20px; line-height:30px; width:100px; display:block; background:#ddd; }
+</style>
+</head>
+<body>
+	<div class="example">
+		<h2>npy-numinput</h2>
+		<p>숫자만: <input type="text" class="_numberinput"></p>
+		<p>천단위 콤마: <input type="text" class="_decimalmarks"></p>
+	</div>
+	
+	<div class="example">
+		<h2>npy-lineclamp</h2>
+		<p class="npy-lineclamp" data-lines="2" id="test1">가나다 라마%$ 바사아 자차카 123abc DE... 타파하 FGHIjk.l 가나다라 마'바사아 '""자차 MnoP 카-타 파 QrStuvw하 Xy z 가나다 라마 바사아~~ 자차카 123abc DE 타파하 FGHIjkl 가나다라 마바사아 자차** MnoP 카타 파 QrStuvw~하 Xy z</p>
+		<p class="npy-lineclamp" data-lines="3" id="test2">가나다 라마%$ 바사아 자차카 123abc DE... 타파하 FGHIjk.l 가나다라 마'바사아 '""자차 MnoP 카-타 파 QrStuvw하 Xy z 가나다 라마 바사아~~ 자차카 123abc DE 타파하 FGHIjkl 가나다라 마바사아 자차** MnoP 카타 파 QrStuvw~하 Xy z</p>
+		<p class="npy-lineclamp" data-lines="4" id="test3">가나다 vvvvvvvvvvvvvv라마%$ sdgsdgs바.사아sdgsdgd 자차카 123abc DE... 타파하 FGHIjk.l 가나다라 마'바사아 '""자차 MnoP 카-타 파 QrStuvw하 Xy z 가나다 라마 바사아~~ 자차카 123abc DE 타파하 FGHIjkl 가나다라 마바사아 자차** MnoP 카타 파 QrStuvw~하 Xy z</p>
+	</div>
+	
+	<script>
+		$(window).on('load', npyLineClamp);
+		
+		$('._numberinput').npyNumInput({
+			addCommas: false,
+			alignRight: false
+		});
+		
+		$('._decimalmarks').npyNumInput();
+	</script>
+</body>
+</html>
