@@ -7,9 +7,12 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/npy-numinput.js"></script>
 <script src="js/npy-lineclamp.js"></script>
+<script src="js/npy-lazyload.js"></script>
 <style>
+html { height:2000px; }
 * { margin:0; padding:0; }
 h2 { margin-bottom:10px; }
+img { height:400px; width:100%; display:block; }
 .example { margin-bottom:30px; }
 p#test1 { font-size:18px; line-height:20px; width:200px; display:block; margin-bottom:20px; }
 p#test2 { font-size:18px; line-height:20px; width:400px; display:block; margin-bottom:20px; }
@@ -30,8 +33,23 @@ p#test3 { word-break:break-all; font-size:20px; line-height:30px; width:100px; d
 		<p class="npy-lineclamp" data-lines="4" id="test3">가나다 vvvvvvvvvvvvvv라마%$ sdgsdgs바.사아sdgsdgd 자차카 123abc DE... 타파하 FGHIjk.l 가나다라 마'바사아 '""자차 MnoP 카-타 파 QrStuvw하 Xy z 가나다 라마 바사아~~ 자차카 123abc DE 타파하 FGHIjkl 가나다라 마바사아 자차** MnoP 카타 파 QrStuvw~하 Xy z</p>
 	</div>
 	
+	<div class="example">
+		<h2>npy-lazyload</h2>
+		<img class="lazyload" data-src="http://image.hyundaihmall.com//HM/HM227/20171124/105223/49099/isa.jpg" src="http://placehold.it/1x1">
+		<img class="lazyload" data-src="http://image.hyundaihmall.com//HM/HM227/20171124/105249/48735/misope.jpg" src="http://placehold.it/1x1">
+		<img class="lazyload" data-src="http://image.hyundaihmall.com//HM/HM227/20171124/105304/48733/cour.jpg" src="http://placehold.it/1x1">
+		<img class="lazyload" data-src="http://image.hyundaihmall.com//HM/HM227/20171123/140641/49208/ivana171127.jpg" src="http://placehold.it/1x1">
+		<img class="lazyload" data-src="http://image.hyundaihmall.com//HM/HM227/20171123/140612/49206/at171127.jpg" src="http://placehold.it/1x1">
+		<img class="lazyload" data-src="http://image.hyundaihmall.com//HM/HM227/20171124/132606/49101/tue.jpg" src="http://placehold.it/1x1">
+		<img class="lazyload" data-src="http://image.hyundaihmall.com//HM/HM227/20171121/133753/48905/49578817.jpg" src="http://placehold.it/1x1">
+		<img class="lazyload" data-src="http://image.hyundaihmall.com//HM/HM227/20171121/103617/48817/60019871.jpg" src="http://placehold.it/1x1">
+	</div>
+	
 	<script>
-		$(window).on('load', npyLineClamp);
+		$(window).on('load', function(){
+			npyLineClamp();
+		});
+		$('.lazyload').npyLazyload();
 		
 		$('._numberinput').npyNumInput({
 			addCommas: false,
